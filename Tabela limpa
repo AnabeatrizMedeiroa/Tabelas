@@ -1,0 +1,13 @@
+import pandas as pd
+tabelas = pd.read_html("https://pt.wikipedia.org/wiki/Lista_de_brasileiros_campe%C3%B5es_de_MMA")
+print(len(tabelas))
+dados = tabelas[0]
+print(dados)
+dados.info()
+int(dados['Ano'][0][-4:])
+
+dados['ano']= [int(dado[-4:]) for dado in dados['Ano']]
+dados
+dados.info()
+dados = dados[['n°','Lutador campeão','ano','Divisão','Linear',	'Interino']]
+print(dados)
